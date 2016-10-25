@@ -28,13 +28,13 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         MainActivity.this.formButton.showButtonView();
                     }
-                }, 3000);
+                }, 4000);
             }
         });
     }
 
     private void createAndAddNewButton() {
-        final LinearLayout linearLayout = (LinearLayout) this.findViewById(R.id.activity_main);
+        final LinearLayout linearLayout = (LinearLayout) this.findViewById(R.id.main_activity_linear_layout);
         final FormButtonNoXml formButtonNoXml = new FormButtonNoXml(this);
         formButtonNoXml.setText("Dynamic Button");
 

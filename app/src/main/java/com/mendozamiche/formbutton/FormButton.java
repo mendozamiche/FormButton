@@ -1,8 +1,6 @@
 package com.mendozamiche.formbutton;
 
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -26,49 +24,33 @@ public class FormButton extends FrameLayout {
     public FormButton(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FormButton);
-        this.buttonText = typedArray.getString(R.styleable.FormButton_buttonText);
-
-        typedArray.recycle();
+//        final TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.FormButton);
+//        this.buttonText = typedArray.getString(R.styleable.FormButton_buttonText);
+//
+//        typedArray.recycle();
 
         this.init();
     }
 
     private void init() {
-        View.inflate(this.getContext(), R.layout.form_button, this);
+        // TODO 1. Inflate layout
     }
 
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        // TODO 2. Initialize child views
 
-        this.button = (Button) this.findViewById(R.id.button);
-        this.progressBar = (ProgressBar) this.findViewById(R.id.progressBar);
-
-        if (!TextUtils.isEmpty(this.buttonText)) {
-            this.button.setText(this.buttonText);
-        }
+        // TODO 3. If custom attributes are used, set them here
     }
 
     public void showProgressView() {
-        this.progressBar.setVisibility(VISIBLE);
-        this.button.setVisibility(INVISIBLE);
+        // TODO 4. Show the user that something is happening
     }
 
     public void showButtonView() {
-        this.progressBar.setVisibility(INVISIBLE);
-        this.button.setVisibility(VISIBLE);
+        // TODO 4. Show the button
     }
 
-    @Override
-    public void setOnClickListener(final OnClickListener listener) {
-        this.button.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showProgressView();
-                listener.onClick(v);
-            }
-        });
-        super.setOnClickListener(listener);
-    }
+    // TODO 5. Override OnClickListener: show progress view and append listener
 }
